@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Wireframe</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="_styles/styles.css" /> 
+	</head>
+
+	<header>
+		<h1 class="head">Funfact</h1>
+	</header>
+
+	<main class="section__main">
+
+		<section id="home" class="section section__home">
+			<article class="article article__fact">
+				<p class="fact">En Alabama, il est interdit de jouer aux dominos le dimanche.</p>
+				<ul>
+					<li><a href="#">source</a></li>
+					<li><a href="#">user</a></li>
+				</ul>
+			</article>
+
+			<ul class="tapbar">
+				<li><button><img src="#" alt="+" />Add Fact</button></li>
+				<li><button class="fav__opener"><img src="#" alt="star" />Add Fav</button></li>
+				<li><button><img src="#" alt="share" />Share</button></li>
+			</ul>
+        </section>
+    </main>
+    <div id="notif"><p>Ajouté à vos favoris</p></div>	
+
+
+<script>
+			(function() {
+    			"use strict";
+    
+    			var button = document.getElementsByClassName("fav__opener")[0];
+   				var notif = document.getElementById("notif");
+    
+	    		button.addEventListener("click", function(e) {
+	     			   e.preventDefault();
+	        
+	  			      notif.classList.add("active");
+	  			  });
+	    
+			    notif.addEventListener("transitionend", function() {
+			        setTimeout(function() {
+			            notif.classList.remove("active");
+			        }, 1000);
+			    });
+			})();
+</script>

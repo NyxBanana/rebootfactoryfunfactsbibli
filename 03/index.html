@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+	<head>
+
+		<title>Wireframe</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="initial-scale=1.0" />
+
+		<link rel="stylesheet" href="_styles/styles.css" />
+
+	</head>
+
+
+	
+	<body>
+			<header>
+
+			</header>
+
+			<main>
+				<nav class="section__nav">
+					<button class="btn--openmenu">menu</button>
+					<ul class="nav">
+						<li class="nav__el"><a href="#home">Home</a></li>
+						<li class="nav__el"><a href="#about">About</a></li>
+						<li class="nav__el"><a href="#contact">Contact</a></li>
+					</ul>
+				</nav>
+
+				<section id="home" class="section section__home">
+					<h1>Home</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</section>
+
+				<script>
+					var 
+						openMenu = document.getElementsByClassName("btn--openmenu")[0],
+						nav = document.getElementsByClassName("section__nav")[0],
+						menuEl = document.getElementsByClassName("nav__el"),
+						secHome = document.getElementsByClassName("section__home")[0]; 
+
+					openMenu.addEventListener("click", function() {
+						nav.classList.toggle("nav--open");
+						nav.classList.add("nav--transition");
+						secHome.classList.toggle("home--closed"); 
+						secHome.classList.add("home--transition"); 
+
+					});
+
+					nav.addEventListener("transitionend", function() {
+						nav.classList.remove("nav--transition");
+						secHome.classList.remove("home--transition"); 
+					});
+
+					for(var i=0; i<menuEl.length; i++) {
+						menuEl[i].addEventListener("click", function (){
+							nav.classList.add("nav--transition");
+							nav.classList.remove("nav--open");
+							secHome.classList.add("home--transition"); 
+							secHome.classList.remove("home--closed"); 
+						});
+					}
+					
+				</script>
+			</main>
+
+			<footer>
+				
+			</footer>
+
+	</body>
+
+</html>
